@@ -1,0 +1,795 @@
+{
+    "tables": {
+        "comp_cmin_step1_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "comp_cmin_step1"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "get_user_id_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "data": {
+                            "user_id": {
+                                "value": "1"
+                            }
+                        }, 
+                        "type": "get_user_id"
+                    }, 
+                    "name": "get_user_id_tab1", 
+                    "match": {
+                        "ipv4.srcAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "user_id": {
+                                "value": "2"
+                            }
+                        }, 
+                        "type": "get_user_id"
+                    }, 
+                    "name": "get_user_id_tab2", 
+                    "match": {
+                        "ipv4.srcAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "user_id": {
+                                "value": "3"
+                            }
+                        }, 
+                        "type": "get_user_id"
+                    }, 
+                    "name": "get_user_id_tab3", 
+                    "match": {
+                        "ipv4.srcAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "user_id": {
+                                "value": "5"
+                            }
+                        }, 
+                        "type": "get_user_id"
+                    }, 
+                    "name": "5", 
+                    "match": {
+                        "ipv4.srcAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "user_id": {
+                                "value": "5"
+                            }
+                        }, 
+                        "type": "get_user_id"
+                    }, 
+                    "name": "6", 
+                    "match": {
+                        "ipv4.srcAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "user_id": {
+                                "value": "4"
+                            }
+                        }, 
+                        "type": "get_user_id"
+                    }, 
+                    "name": "get_user_id_tab4", 
+                    "match": {
+                        "ipv4.srcAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "read_update_cmin_win3_hash1_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win3_hash1"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "3"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "ban_acl": {
+            "default_rule": {
+                "action": {
+                    "type": "nop"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "read_update_cmin_win0_hash0_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win0_hash0"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "0"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "read_update_cmin_win1_hash2_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win1_hash2"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "1"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "read_update_cmin_win3_hash2_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win3_hash2"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "3"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "last_time": {
+            "rules": [
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "winId": {
+                                "value": "0"
+                            }
+                        }, 
+                        "type": "read_update_ts"
+                    }, 
+                    "name": "last_time1", 
+                    "match": {
+                        "md.tstamp": {
+                            "mask": "0xc000", 
+                            "value": "0x0000"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "winId": {
+                                "value": "1"
+                            }
+                        }, 
+                        "type": "read_update_ts"
+                    }, 
+                    "name": "last_time2", 
+                    "match": {
+                        "md.tstamp": {
+                            "mask": "0xc000", 
+                            "value": "0x4000"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "winId": {
+                                "value": "2"
+                            }
+                        }, 
+                        "type": "read_update_ts"
+                    }, 
+                    "name": "last_time3", 
+                    "match": {
+                        "md.tstamp": {
+                            "mask": "0xc000", 
+                            "value": "0x8000"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "winId": {
+                                "value": "3"
+                            }
+                        }, 
+                        "type": "read_update_ts"
+                    }, 
+                    "name": "last_time4", 
+                    "match": {
+                        "md.tstamp": {
+                            "mask": "0xc000", 
+                            "value": "0xc000"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "split_cmin_win0_32_20_msb12_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_cmin_win0_32_20_msb12"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "match_win_id_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "match_win_id"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "read_update_cmin_win1_hash1_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win1_hash1"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "1"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "comp_cmin_step2_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "comp_cmin_step2"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "generate_entry_digest_tab": {
+            "rules": [
+                {
+                    "priority": 100, 
+                    "action": {
+                        "type": "nop"
+                    }, 
+                    "name": "generate_entry_digest1", 
+                    "match": {
+                        "md.tstamp_diff": {
+                            "mask": "0xFFFFC000", 
+                            "value": "0"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "send_entry_digest"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "split_cmin_win2_32_20_msb12_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_cmin_win2_32_20_msb12"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "read_update_cmin_win3_hash0_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win3_hash0"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "3"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "forward": {
+            "rules": [
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p0"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward1", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p3"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward2", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p1"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward3", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p2"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward4", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "data": {
+                        "grp": {
+                            "value": "mg1"
+                        }
+                    }, 
+                    "type": "set_mc"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "split_tstamp_high32_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_tstamp_high32"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "read_update_cmin_win0_hash1_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win0_hash1"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "0"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "forward1": {
+            "rules": [
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "v0.0"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "2", 
+                    "match": {
+                        "meta.drop1": {
+                            "value": "1"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "nop"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "split_cmin_win1_32_20_msb12_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_cmin_win1_32_20_msb12"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "read_update_cmin_win1_hash0_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win1_hash0"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "1"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "read_update_cmin_win2_hash0_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win2_hash0"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "read_update_cmin_win2_hash1_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win2_hash1"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "read_update_cmin_win0_hash2_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win0_hash2"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "0"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "rate_limit": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "nop"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "0->2992"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "nop"
+                    }, 
+                    "name": "3", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "0->2992"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "nop"
+                    }, 
+                    "name": "4", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "0->2992"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "nop"
+                    }, 
+                    "name": "5", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "0->2992"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "send_ban_digest"
+                    }, 
+                    "name": "2", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "2993->3072"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "send_ban_digest"
+                    }, 
+                    "name": "6", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "2993->3072"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "send_ban_digest"
+                    }, 
+                    "name": "7", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "2993->3072"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "send_ban_digest"
+                    }, 
+                    "name": "8", 
+                    "match": {
+                        "meta.cmin_win": {
+                            "value": "2993->3072"
+                        }, 
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "split_cmin_win3_32_20_msb12_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_cmin_win3_32_20_msb12"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "read_update_cmin_win2_hash2_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "read_update_cmin_win2_hash2"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "md.winId": {
+                            "value": "2"
+                        }, 
+                        "ib_bth": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ]
+        }
+    }, 
+    "multicast": {
+        "mg1": {
+            "group_id": 1, 
+            "ports": [
+                "0", 
+                "3", 
+                "1", 
+                "2"
+            ]
+        }
+    }
+}

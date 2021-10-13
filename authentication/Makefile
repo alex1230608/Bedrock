@@ -1,4 +1,4 @@
-APPS = spoofv2 client_attacker client_authentication server_authentication
+APPS = spoofv2 client_attacker client_auth server_auth
 
 LDFLAGS = -libverbs -lpthread #-ldl
 CFLAGS += -Wall -std=c++11 -I./  
@@ -12,11 +12,11 @@ clean:
 spoofv2: clean
 	g++ spoofv2.cpp --std=c++11 -lz -o spoofv2
 
-server_authentication: clean
-	g++ server_authentication.cpp $(CFLAGS) $(LDFLAGS) -lrdmacm   -o server_authentication
+server_auth: clean
+	g++ server_auth.cpp $(CFLAGS) $(LDFLAGS) -lrdmacm   -o server_auth
 
-client_authentication: clean
-	g++ client_authentication.cpp $(CFLAGS) $(LDFLAGS) -lrdmacm   -o client_authentication
+client_auth: clean
+	g++ client_auth.cpp $(CFLAGS) $(LDFLAGS) -lrdmacm   -o client_auth
 
 client_attacker: clean
 	g++ client_attacker.cpp $(CFLAGS) $(LDFLAGS) -lrdmacm   -o client_attacker

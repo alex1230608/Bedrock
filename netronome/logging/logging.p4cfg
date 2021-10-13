@@ -1,0 +1,490 @@
+{
+    "tables": {
+        "split_tstamp_high32_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_tstamp_high32"
+                }, 
+                "name": "0"
+            }
+        }, 
+        "forward1": {
+            "default_rule": {
+                "action": {
+                    "type": "nop"
+                }, 
+                "name": "2"
+            }
+        }, 
+        "form_log_byte_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "form_log_byte"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "split_tstamp1_high32_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "split_tstamp1_high32"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "remove_logHeader_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "remove_logHeader"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "standard_metadata.egress_port": {
+                            "value": "p1"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "remove_logHeader"
+                    }, 
+                    "name": "2", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "standard_metadata.egress_port": {
+                            "value": "p2"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "remove_logHeader"
+                    }, 
+                    "name": "0", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "standard_metadata.egress_port": {
+                            "value": "p0"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "remove_logHeader"
+                    }, 
+                    "name": "3", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "standard_metadata.egress_port": {
+                            "value": "p3"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "data": {
+                        "macDst": {
+                            "value": "238338866039533"
+                        }, 
+                        "ipSrc": {
+                            "value": "10.0.4.10"
+                        }, 
+                        "macSrc": {
+                            "value": "73588229205"
+                        }, 
+                        "ipDst": {
+                            "value": "10.0.4.11"
+                        }
+                    }, 
+                    "type": "correct_logHeader"
+                }, 
+                "name": "4"
+            }
+        }, 
+        "read_update_log_byte_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "read_update_log_byte"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "ban_acl": {
+            "default_rule": {
+                "action": {
+                    "type": "ban"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "cursor_tab": {
+            "default_rule": {
+                "action": {
+                    "type": "read_update_cursor"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "rdma_acl": {
+            "default_rule": {
+                "action": {
+                    "type": "nop"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "receive_ctrl": {
+            "default_rule": {
+                "action": {
+                    "type": "send_entry_digest"
+                }, 
+                "name": "1"
+            }
+        }, 
+        "forward": {
+            "rules": [
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p0"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward1", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p3"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward2", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p1"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward3", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p2"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "forward4", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "ipv4": {
+                            "value": "valid"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "data": {
+                        "grp": {
+                            "value": "mg1"
+                        }
+                    }, 
+                    "type": "set_mc"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "forward_reth": {
+            "rules": [
+                {
+                    "priority": 10, 
+                    "action": {
+                        "data": {
+                            "grp": {
+                                "value": "mg3"
+                            }
+                        }, 
+                        "type": "set_mc"
+                    }, 
+                    "name": "1", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "md.cursor": {
+                            "mask": "255", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 10, 
+                    "action": {
+                        "data": {
+                            "grp": {
+                                "value": "mg4"
+                            }
+                        }, 
+                        "type": "set_mc"
+                    }, 
+                    "name": "2", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "md.cursor": {
+                            "mask": "255", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 10, 
+                    "action": {
+                        "data": {
+                            "grp": {
+                                "value": "mg5"
+                            }
+                        }, 
+                        "type": "set_mc"
+                    }, 
+                    "name": "3", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "md.cursor": {
+                            "mask": "255", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 10, 
+                    "action": {
+                        "data": {
+                            "grp": {
+                                "value": "mg2"
+                            }
+                        }, 
+                        "type": "set_mc"
+                    }, 
+                    "name": "0", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "md.cursor": {
+                            "mask": "255", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p1"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "4", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.1"
+                        }, 
+                        "md.cursor": {
+                            "mask": "0", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p2"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "5", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.2"
+                        }, 
+                        "md.cursor": {
+                            "mask": "0", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p0"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "6", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.4"
+                        }, 
+                        "md.cursor": {
+                            "mask": "0", 
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "priority": 100, 
+                    "action": {
+                        "data": {
+                            "egress_spec": {
+                                "value": "p3"
+                            }
+                        }, 
+                        "type": "set_egr"
+                    }, 
+                    "name": "7", 
+                    "match": {
+                        "ipv4.dstAddr": {
+                            "value": "10.0.4.9"
+                        }, 
+                        "md.cursor": {
+                            "mask": "0", 
+                            "value": "0"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "data": {
+                        "grp": {
+                            "value": "mg1"
+                        }
+                    }, 
+                    "type": "set_mc"
+                }, 
+                "name": "10"
+            }
+        }, 
+        "add_logHeader_tab": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "add_logHeader"
+                    }, 
+                    "name": "2", 
+                    "match": {
+                        "md.cursor": {
+                            "value": "0"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "nop"
+                }, 
+                "name": "1"
+            }
+        }
+    }, 
+    "multicast": {
+        "mg3": {
+            "group_id": 3, 
+            "ports": [
+                "1", 
+                "v0.1"
+            ]
+        }, 
+        "mg2": {
+            "group_id": 2, 
+            "ports": [
+                "0", 
+                "v0.0"
+            ]
+        }, 
+        "mg1": {
+            "group_id": 1, 
+            "ports": [
+                "0", 
+                "3", 
+                "1", 
+                "2"
+            ]
+        }, 
+        "mg5": {
+            "group_id": 5, 
+            "ports": [
+                "3", 
+                "v0.3"
+            ]
+        }, 
+        "mg4": {
+            "group_id": 4, 
+            "ports": [
+                "2", 
+                "v0.2"
+            ]
+        }
+    }
+}

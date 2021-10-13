@@ -1,5 +1,5 @@
 output/
-client_authentication
-server_authentication
+client_auth
+server_auth
 client_attacker
 spoofv2
